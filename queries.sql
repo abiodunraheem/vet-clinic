@@ -8,3 +8,40 @@ SELECT name, escape_attempts from animals WHERE weight_kg > 10.5;
 SELECT * FROM animals WHERE neutered=true;
 SELECT * FROM animals WHERE NOT name='Gabumon';
 SELECT * FROM animals WHERE weight_kg >= '10.4' and weight_kg <='17.3';
+
+-- Update the animals table by setting the species column to unspecified
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+ROLLBACK;
+SELECT * FROM animals
+
+-- Update the animals table by setting the species column to digimon for all animals that have a name ending in mon
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species IS null;
+COMMIT;
+SELECT * FROM animals;
+
+-- Delete all records in the animals table, then roll back the transaction.
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+-- Delete all animals born after Jan 1st, 2022
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+SAVEPOINT DELETE_ANIMALS_AFTER2022;
+UPDATE animals SET weight_kg = weight_kg * (-1);
+ROLLBACK TO DELETE_ANIMALS_AFTER2022;
+UPDATE animals SET weight_kg = weight_kg * (-1) WHERE weight_kg < 0;
+COMMIT;
+SELECT * FROM animals;
+
+-- Write queries to answer the following questions:
+SELECT (COUNT*) as total_animals FROM animals;
+SELECT (COUNT*) as zero_escape_attempts FROM animals WHERE escape_attempts = '0';
+SELECT AVG(weight_kg) as average_weight_kg FROM animals;
+SELECT neutered, MAX(escape_attempts) FROM ANIMALS GROUP BY neutered; 
+SELECT MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
+SELECT AVG(escape_attempts) FROM animals WHERE date_of_birth  BETWEEN '1990-01-01' AND '2000-01-01' GROUP BY species;
