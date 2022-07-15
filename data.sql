@@ -58,3 +58,45 @@ WHERE name = 'Blossom' AND name = 'Squirtle' AND name = 'Charmander';
 -- Dean Winchester owns Angemon and Boarmon.
 UPDATE animals SET owner_id = ( SELECT id FROM owners WHERE full_name ='Dean Winchester' )
 WHERE name = 'Angemon' AND name = 'Boarmon';
+
+-- Insert the following data for vet
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES('William Tatcher', 45, '2000-04-23'),
+      ('Maisy Smith', 26, '2019-01-17'),
+      ('Stephanie Mendez', 64, '1981-05-04'),
+      ('Jack Harkness', 38, '2008-06-08');
+
+--Insert the following data for specialties:
+Vet William Tatcher is specialized in Pokemon.
+Vet Stephanie Mendez is specialized in Digimon and Pokemon.
+Vet Jack Harkness is specialized in Digimon
+
+INSERT INTO specializations (vets_id, species_id)
+VALUES (1, 1),
+       (3, 2),
+       (3, 1),
+       (4, 2);
+
+-- Insert the following data for visits:
+
+INSERT INTO visits (vets_id, animals_id, date)
+VALUES (1, 1, '2020-05-24'),
+       (3, 1, '2020-06-22'),
+       (4, 2, '2021-02-02'),
+       (2, 3, '2020-01-05'),
+       (2, 3, '2020-03-08'),
+       (2, 3, '2020-05-14'),
+       (3, 4, '2021-05-04'),
+       (4, 9, '2021-02-24'),
+       (2, 10, '2019-12-21'),
+       (1, 10, '2020-08-10'),
+       (2, 10, '2021-04-07'),
+       (3, 11, '2019-09-29'),
+       (4, 12, '2020-10-03'),
+       (4, 12, '2020-11-04'),
+       (2, 13, '2019-01-24'),
+       (2, 13, '2019-05-15'),
+       (2, 13, '2020-01-27'),
+       (2, 13, '2020-08-03'),
+       (3, 14, '2020-05-24'),
+       (1, 14, '2021-01-11');
