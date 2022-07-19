@@ -11,11 +11,19 @@ This repository includes SQL files that can be used to recreate a database:
 - Use [data.sql](./data.sql) to populate tables with sample data.
 - Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
 
+**Authors** 
 
-👤 **Author**
+👤 **Abiodun Raheem**
+
 - GitHub: [@Abiodunraheem](https://github.com/Abiodunraheem)
 - Twitter: [@abiodunraheem23](https://twitter.com/abiodunraheem23)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abiodun-raheem)
+
+👤 **Stanley SIMEON**
+
+- GitHub: [@stanleySimeon](https://github.com/stanleySimeon)
+- Twitter: [@mstanleyme](https://twitter.com/mstanleyme)
+- LinkedIn: [@stanleysimeon](https://www.linkedin.com/in/stanleysimeon/)
 
 ## 🤝 Contributing
 
