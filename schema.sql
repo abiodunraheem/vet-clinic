@@ -78,7 +78,7 @@ SELECT COUNT(*) FROM visits WHERE animals_id = 4
 CREATE INDEX visits_id_index ON visits(vets_id);
 SELECT * FROM visits WHERE vets_id = 2;
 
--- CREATE INDEX owners_id_index ON owners(email);
+CREATE INDEX owners_id_index ON owners(email);
 SELECT * FROM owners WHERE email = 'owner_18327@mail.com';
 
 EXPLAIN ANALYZE SELECT * FROM visits WHERE animals_id = 2;
