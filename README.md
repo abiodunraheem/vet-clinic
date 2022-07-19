@@ -13,10 +13,17 @@ This repository includes SQL files that can be used to recreate a database:
 
 **Authors** 
 
-👤 **Author 1**
+👤 **Abiodun Raheem**
+
 - GitHub: [@Abiodunraheem](https://github.com/Abiodunraheem)
 - Twitter: [@abiodunraheem23](https://twitter.com/abiodunraheem23)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abiodun-raheem)
+
+👤 **Stanley SIMEON**
+
+- GitHub: [@stanleySimeon](https://github.com/stanleySimeon)
+- Twitter: [@mstanleyme](https://twitter.com/mstanleyme)
+- LinkedIn: [@stanleysimeon](https://www.linkedin.com/in/stanleysimeon/)
 
 ## 🤝 Contributing
 
