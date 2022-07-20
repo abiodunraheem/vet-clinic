@@ -59,4 +59,12 @@ CREATE DATABASE clinic;
         total_price DECIMAL,
         invoice_id INT,
         treatment_id INT,
+        CONSTRAINT fk_invoices_id 
+            FOREIGN KEY (invoice_id) 
+            REFERENCES invoices(id) 
+            ON DELETE CASCADE,
+        CONSTRAINT fk_treatment_id 
+            FOREIGN KEY (treatment_id) 
+            REFERENCES treatments(id) 
+            ON DELETE CASCADE
     );
