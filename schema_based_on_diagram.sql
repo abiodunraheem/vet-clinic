@@ -49,6 +49,12 @@ CREATE DATABASE clinic;
         generated_at TIMESTAMP,
         payed_at TIMESTAMP,
         medical_history_id INT,
+        CONSTRAINT unique_history_id 
+                UNIQUE(medical_history_id),
+        CONSTRAINT fk_medical_history_id 
+            FOREIGN KEY (medical_history_id) 
+            REFERENCES medical_histories(id) 
+            ON DELETE CASCADE
     );
 
 -- Create table for invoice_item
@@ -68,3 +74,11 @@ CREATE DATABASE clinic;
             REFERENCES treatments(id) 
             ON DELETE CASCADE
     );
+
+-- Improve execusion time
+CREATE INDEX  patient_id_index ON medical_histories(patient_id);
+CREATE INDEX  invoice_id_index ON invoice_items(invoice_id);
+CREATE INDEX  treatment_id_index ON invoice_items(treatment_id);
+CREATE INDEX  medical_id_index ON invoices(medical_history_id);
+CREATE INDEX  treatment_id_history_index ON treatments_histories(treatment_id);
+CREATE INDEX  medical_history_id_index ON treatments_histories(medical_history_id);
