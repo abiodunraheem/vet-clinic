@@ -27,20 +27,6 @@ CREATE DATABASE clinic;
         name VARCHAR(200)
     );
 
-    CREATE TABLE treatments_histories ( 
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-        medical_history_id INT,
-        treatment_id INT,
-        CONSTRAINT fk_medical_history_id 
-            FOREIGN KEY (medical_history_id) 
-            REFERENCES medical_histories(id) 
-            ON DELETE CASCADE,
-        CONSTRAINT fk_treatment_id 
-            FOREIGN KEY (treatment_id) 
-            REFERENCES treatments(id) 
-            ON DELETE CASCADE
-    );
-
     CREATE TABLE invoices ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         total_amount DECIMAL,
@@ -56,4 +42,12 @@ CREATE DATABASE clinic;
         total_price DECIMAL,
         invoice_id INT,
         treatment_id INT,
+        CONSTRAINT fk_invoices_id 
+            FOREIGN KEY (invoice_id) 
+            REFERENCES invoices(id) 
+            ON DELETE CASCADE,
+        CONSTRAINT fk_treatment_id 
+            FOREIGN KEY (treatment_id) 
+            REFERENCES treatments(id) 
+            ON DELETE CASCADE
     );
