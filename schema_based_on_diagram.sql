@@ -1,9 +1,9 @@
--- Create database called clinic
+-- Create database for a clinic
 CREATE DATABASE clinic;
 
 -- table for patient
  CREATE TABLE patients ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         name VARCHAR(200),
         date_of_birth DATE
     );
@@ -11,7 +11,7 @@ CREATE DATABASE clinic;
 -- Table for medical histories
 
     CREATE TABLE medical_histories ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         admitted_at TIMESTAMP,
         patient_id INTEGER,
         status VARCHAR(20),
@@ -22,13 +22,13 @@ CREATE DATABASE clinic;
     );
 
     CREATE TABLE treatments ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         type VARCHAR(200),
         name VARCHAR(200)
     );
 
     CREATE TABLE treatments_histories ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         medical_history_id INT,
         treatment_id INT,
         CONSTRAINT fk_medical_history_id 
@@ -42,7 +42,7 @@ CREATE DATABASE clinic;
     );
 
     CREATE TABLE invoices ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         total_amount DECIMAL,
         generated_at TIMESTAMP,
         payed_at TIMESTAMP,
@@ -56,7 +56,7 @@ CREATE DATABASE clinic;
     );
 
      CREATE TABLE invoice_items ( 
-        id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         unit_price DECIMAL,
         quantity INT,
         total_price DECIMAL,
