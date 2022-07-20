@@ -9,7 +9,6 @@ CREATE DATABASE clinic;
     );
 
 -- Table for medical histories
-
     CREATE TABLE medical_histories ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         admitted_at TIMESTAMP,
@@ -21,12 +20,14 @@ CREATE DATABASE clinic;
             ON DELETE CASCADE
     );
 
+-- Create table for treatments
     CREATE TABLE treatments ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         type VARCHAR(200),
         name VARCHAR(200)
     );
 
+-- Create table for treatments_histories
     CREATE TABLE treatments_histories ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         medical_history_id INT,
@@ -41,6 +42,7 @@ CREATE DATABASE clinic;
             ON DELETE CASCADE
     );
 
+-- Create table for invoices
     CREATE TABLE invoices ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         total_amount DECIMAL,
@@ -49,6 +51,7 @@ CREATE DATABASE clinic;
         medical_history_id INT,
     );
 
+-- Create table for invoice_item
      CREATE TABLE invoice_items ( 
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         unit_price DECIMAL,
